@@ -14,10 +14,19 @@ const allowedOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5173,http
   .split(",")
   .map((origin) => origin.trim());
 
+const isAllowedOrigin = (origin) => (
+  !origin
+  || allowedOrigins.includes(origin)
+  || /^http:\/\/localhost:\d+$/.test(origin)
+  // Vercel assigns distinct hostnames to preview deployments. CORS is not an
+  // authorization boundary here (the API has no browser credentials), so
+  // accepting Vercel-hosted copies makes both preview and production usable.
+  || /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin)
+);
+
 app.use(cors({
   origin(origin, callback) {
-    // Allow local Vite ports during development and explicitly configured production origins.
-    if (!origin || allowedOrigins.includes(origin) || /^http:\/\/localhost:\d+$/.test(origin)) {
+    if (isAllowedOrigin(origin)) {
       return callback(null, true);
     }
     return callback(new Error("Origin is not allowed by CORS."));
