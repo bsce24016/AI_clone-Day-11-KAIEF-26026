@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useChat } from "../context/useChat";
+import { useChat } from "../context/usechat";
 
 function ChatInput() {
   const [input, setInput] = useState("");

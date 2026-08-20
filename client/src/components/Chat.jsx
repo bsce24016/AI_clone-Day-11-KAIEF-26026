@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { useChat } from "../context/useChat";
+import { useChat } from "../context/usechat";
 import ChatInput from "./ChatInput";
 import Message from "./Message";
 import Loading from "./Loading";

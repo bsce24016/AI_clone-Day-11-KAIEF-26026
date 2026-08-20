@@ -1,4 +1,4 @@
-import { useChat } from "../context/useChat";
+import { useChat } from "../context/usechat";
 
 function Sidebar() {
   const {
