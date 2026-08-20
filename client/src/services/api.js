@@ -1,7 +1,7 @@
 // Vite substitutes VITE_* variables when it builds the frontend. Keep the
 // deployed API as a production fallback so a missing dashboard variable does
 // not make the browser request Vercel's non-existent /api/chat route.
-const productionApiUrl = "https://ai-clone-day-11-kaief-26026-6.onrender.com";
+const productionApiUrl = "https://ai-clone-day-11-kaief-26026-6.onrender.com"; // no trailing slash;
 const configuredApiUrl = import.meta.env.VITE_API_URL
   || (import.meta.env.PROD ? productionApiUrl : "");
 const localApiUrl = "http://localhost:5000";
