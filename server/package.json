@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Backend for Day 11 Groq AI Clone",
   "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
